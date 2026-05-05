@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Manage Admins - VELTECH</title>
+</head>
+<body>
+    <section class="container py-5">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="fa-solid fa-user-shield text-primary"></i> Manage Admins</h2>
+            <a th:href="@{/admin}" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+
+        <div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <span th:text="${param.success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <div class="row">
+            <!-- Add Admin Form -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-dark text-white fw-bold">
+                        <i class="fa-solid fa-user-plus"></i> Add New Admin
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/admin/add-admin}" th:object="${newAdmin}" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-control" th:field="*{username}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" th:field="*{fullName}" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control" th:field="*{password}" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100">Create Admin</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin List -->
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white fw-bold">
+                        <i class="fa-solid fa-list"></i> Existing Admins
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Full Name</th>
+                                    <th class="text-end">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="admin : ${admins}">
+                                    <td class="fw-bold" th:text="${admin.username}"></td>
+                                    <td th:text="${admin.fullName}"></td>
+                                    <td class="text-end">
+                                        <a th:if="${admin.username != 'admin'}" th:href="@{/admin/delete-admin/{id}(id=${admin.id})}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this admin?');">Delete</a>
+                                        <span th:if="${admin.username == 'admin'}" class="badge bg-secondary">System Root</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

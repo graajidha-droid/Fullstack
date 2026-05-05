@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #0f4c81; /* Classic University Blue */
+    --secondary-color: #f7bb07; /* Gold/Yellow accent */
+    --bg-light: #f8f9fa;
+    --text-dark: #333333;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a73e8 100%);
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-header-custom {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary-custom:hover {
+    background-color: #0a3d6b;
+    border-color: #0a3d6b;
+    color: white;
+}
+
+.btn-accent {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #000;
+    font-weight: 600;
+}
+
+.btn-accent:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+.footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 20px 0;
+    margin-top: 50px;
+}

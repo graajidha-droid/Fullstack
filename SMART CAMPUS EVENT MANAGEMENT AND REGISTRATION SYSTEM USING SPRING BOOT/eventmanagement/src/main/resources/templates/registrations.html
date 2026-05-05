@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Manage Registrations - VELTECH</title>
+</head>
+<body>
+    <section class="container py-5">
+        
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="fa-solid fa-users text-success"></i> Registered Students</h2>
+            <div>
+                <a th:href="@{/admin}" class="btn btn-outline-secondary me-2"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+                <a th:href="@{/admin/registrations/clear}" class="btn btn-danger" onclick="return confirm('WARNING: This will permanently delete ALL registrations. Are you sure?');">
+                    <i class="fa-solid fa-trash-can"></i> Clear All Registrations
+                </a>
+            </div>
+        </div>
+
+        <div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fa-solid fa-circle-check"></i> <span th:text="${param.success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th># ID</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Department</th>
+                                <th>Event ID</th>
+                                <th>Tickets</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="r : ${regs}">
+                                <td th:text="${r.id}" class="text-muted fw-bold"></td>
+                                <td th:text="${r.name}" class="fw-semibold"></td>
+                                <td><a th:href="'mailto:' + ${r.email}" class="text-decoration-none" th:text="${r.email}"></a></td>
+                                <td><span class="badge bg-info text-dark" th:text="${r.department}"></span></td>
+                                <td><span class="badge bg-secondary" th:text="${'Event #' + r.eventId}"></span></td>
+                                <td th:text="${r.tickets}"></td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(regs)}">
+                                <td colspan="6" class="text-center py-5 text-muted">
+                                    <i class="fa-solid fa-box-open fa-3x mb-3 d-block"></i>
+                                    No registrations found.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer bg-white text-muted">
+                Total Registrations: <span class="fw-bold" th:text="${#lists.size(regs)}"></span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

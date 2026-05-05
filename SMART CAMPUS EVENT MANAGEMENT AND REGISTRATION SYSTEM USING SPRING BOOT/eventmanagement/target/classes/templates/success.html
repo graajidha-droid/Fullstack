@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:replace="~{fragments/layout :: layout(~{::title}, ~{::section})}">
+<head>
+    <title>Success - VELTECH</title>
+</head>
+<body>
+    <section class="container py-5 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow border-0 py-5">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <i class="fa-solid fa-circle-check text-success" style="font-size: 80px;"></i>
+                        </div>
+                        <h2 class="fw-bold text-success mb-3">Registration Successful!</h2>
+                        <p class="lead text-muted mb-4">Your seat has been reserved. Please check your email for further details and confirmation.</p>
+                        
+                        <a th:href="@{/}" class="btn btn-primary-custom btn-lg"><i class="fa-solid fa-house"></i> Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
