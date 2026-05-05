@@ -1,0 +1,8 @@
+com\campus\eventmanagement\registration\RegistrationRepository.class
+com\campus\eventmanagement\EventmanagementApplication.class
+com\campus\eventmanagement\config\SecurityConfig.class
+com\campus\eventmanagement\controller\EventController.class
+com\campus\eventmanagement\service\EventService.class
+com\campus\eventmanagement\model\Event.class
+com\campus\eventmanagement\repository\EventRepository.class
+com\campus\eventmanagement\registration\Registration.class
