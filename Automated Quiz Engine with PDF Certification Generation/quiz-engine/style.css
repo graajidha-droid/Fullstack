@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f4f7f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card */
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #2f3e46;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Input */
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dbe2ea;
+    margin-top: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #6c9bcf;
+}
+
+/* Buttons */
+button {
+    padding: 10px 22px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    background: #6c9bcf;
+    color: white;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #4a7fb9;
+}
+
+/* Questions */
+.question {
+    margin-top: 18px;
+    padding: 15px;
+    background: #f8fbfd;
+    border-radius: 10px;
+    border: 1px solid #e3edf5;
+}
+
+.question p {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #344e57;
+}
+
+.question label {
+    display: block;
+    margin-left: 8px;
+    margin-top: 6px;
+    cursor: pointer;
+    color: #455a64;
+}
+
+/* Timer */
+.top-bar {
+    text-align: right;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #607d8b;
+}
+
+/* Result */
+#resultText {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2f3e46;
+}
+
+/* Leaderboard */
+#leaderboard {
+    margin-top: 20px;
+    background: #f1f6fa;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #dde7f0;
+}
+
+#leaderboard p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #455a64;
+}
+
+/* Hide */
+.hidden {
+    display: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

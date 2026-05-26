@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professional Quiz Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Automated Quiz Engine</h1>
+
+    <!-- NAME PAGE -->
+    <div id="page1">
+        <input type="text" id="username" placeholder="Enter Your Name">
+        <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- QUIZ PAGE -->
+    <div id="page2" class="hidden">
+
+        <div class="top-bar">
+            <span id="timer">Time: 60</span>
+        </div>
+
+        <form id="quizForm"></form>
+
+        <button onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+
+    <!-- RESULT PAGE -->
+    <div id="page3" class="hidden">
+        <h2>Result</h2>
+        <h3 id="resultText"></h3>
+        <button onclick="downloadCertificate()">Download PDF Certificate</button>
+
+        <h3>Leaderboard</h3>
+        <div id="leaderboard"></div>
+    </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
